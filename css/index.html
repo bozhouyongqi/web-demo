@@ -1,0 +1,120 @@
+
+<!-- Flexiable layout demo-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container1 {
+            width: 60%;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            border: 1px dashed;
+            padding: 3px;
+        }
+        .container1 div {
+            border: 1px red dashed;
+            margin: 0px 3px;
+        }
+
+        .container2 {
+            display: flex;
+            height: 100px;
+            border: 1px dashed;
+            justify-content: center;
+            align-items: center;
+        }
+        .container2 div {
+            background-color: green;
+            width: 100px;
+        }
+
+        .container3 {
+            width: 80%;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            border: 1px dashed;
+            padding: 3px;
+        }
+        .container3 div {
+            border: 1px red dashed;
+            margin: 0px 3px;
+        }
+        .feed {
+            display: inline-block;
+        }
+        .feed .container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .feed .container .image {
+            width: 30vw;
+            height: 20vw;
+            background-image: url(http://inews.gtimg.com/newsapp_ls/0/12383460877_150120/0);
+            background-size: cover;
+        }
+        .feed .container .text-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding-right: 5px;
+        }
+        .feed .container .text-content .title {
+            line-clamp: 3;
+        }
+        ul {
+            margin: 0px;
+            padding: 0px;
+        }
+        ul li {
+            list-style: none;
+            padding: 5px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container1">
+        <div class="flex-box">this is a flexiable demo</div>
+        <div class="flex-box">this is a flexiable demo</div>
+        <div class="flex-box">this is a flexiable demo</div>
+        <div class="flex-box">this is a flexiable demo</div>
+        <div class="flex-box">this is a flexiable demo</div>
+    </div>
+
+    <p>内容水平垂直居中</p>
+    <div class="container2">
+        <div>这是一个居中元素</div>
+    </div>
+
+    <div class="container3">
+        <div class="flex-box">this is a flexiable demo</div>
+        <div class="flex-box">this is a flexiable </div>
+        <div class="flex-box">this is a </div>
+        <div class="flex-box">this is </div>
+        <div class="flex-box">this is </div>
+    </div>
+    
+    <p>信息流左文右图布局</p>
+
+    <ul>
+        <li>
+            <a class="feed">
+                <div class="container">
+                    <div class="text-content">
+                        <div class="title">香港知名女星疑挺暴徒，这个角色换人了！</div>
+                        <div>南国今报</div>
+                    </div>
+                    <div class="image">
+                    </div>
+                </div>
+            </a>
+        </li>
+    </ul>
+
+</body>
+</html>
