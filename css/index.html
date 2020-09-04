@@ -134,11 +134,28 @@
                     timmer = null;
                 }, interval);
             }
-        }
+        };
     };
-    var fn = function() {
-        console.log('throttle......');
+    var fn = function(a) {
+        console.log('callback ', a);
     };
-    window.addEventListener('scroll', throttle(fn, 500));
+
+    var debounce = function(callback, delay) {
+
+        var timmer = null;
+        return function () {
+            if (timmer) {
+                clearTimeout(timmer);
+            }
+            timmer = setTimeout(function () {
+                callback();
+            }, delay);
+        };
+    };
+
+    // window.addEventListener('scroll', throttle(fn, 500));
+    window.addEventListener('scroll', debounce(fn.bind(null, 'debounce'), 200));
 </script>
+
+
 </html>
