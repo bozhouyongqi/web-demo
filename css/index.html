@@ -115,6 +115,30 @@
             </a>
         </li>
     </ul>
+    <p style="with: 100%;height: 1000px;border: 1px red solid">
+        测试debounce和throttle用
+    </p>
 
 </body>
+<script>
+    // 节流实现，
+    var throttle = function (callback, interval) {
+        var timmer = null;
+        // 实际回调，调用的此函数
+        return function () {
+            if (!timmer) {
+                timmer = setTimeout(function () {
+                    // 在这个回调中调用就需要给callback提前绑定好this值
+                    callback();
+                    clearTimeout(timmer);
+                    timmer = null;
+                }, interval);
+            }
+        }
+    };
+    var fn = function() {
+        console.log('throttle......');
+    };
+    window.addEventListener('scroll', throttle(fn, 500));
+</script>
 </html>
