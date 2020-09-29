@@ -75,6 +75,20 @@
             padding: 5px;
         }
 
+        .container4 {
+            width: 60%;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            border: 1px dashed;
+            padding: 3px;
+        }
+        .container4 div{
+            border: 1px red dashed;
+            margin: 0px 3px;
+            width: 100px;
+        }
+
     </style>
 </head>
 <body>
@@ -92,6 +106,15 @@
     </div>
 
     <div class="container3">
+        <div class="flex-box">this is a flexiable demo</div>
+        <div class="flex-box">this is a flexiable </div>
+        <div class="flex-box">this is a </div>
+        <div class="flex-box">this is </div>
+        <div class="flex-box">this is </div>
+    </div>
+
+    <p>下面测试flex的默认值：即flex:intinal;即表示弹性元素只能缩小，不能增大。相当于flex: 0 1 auto;</p>
+    <div class="container4">
         <div class="flex-box">this is a flexiable demo</div>
         <div class="flex-box">this is a flexiable </div>
         <div class="flex-box">this is a </div>
@@ -118,6 +141,36 @@
     <p style="with: 100%;height: 1000px;border: 1px red solid">
         测试debounce和throttle用
     </p>
+
+    <p>display:flex与display:inline-flex的区别</p>
+    <style>
+        #flex1 {
+            display: flex;
+            border: 1px solid blue;
+        }
+        #flex1 > *{
+            border: 1px dashed black;
+            margin: 0 10px;
+        }
+        #flex2 {
+            display: inline-flex;
+            border: 1px solid blue;
+        }
+        #flex2 > *{
+            border: 1px dashed black;
+            margin: 0 10px;
+        }
+    </style>
+    <div id="flex1">
+        <p>hahahhaha</p>
+        <p>hahahahaaaaaaa</p>
+        <span>yyyyyyyy</span>
+    </div>
+    <div id="flex2">
+        <p>hahahhaha</p>
+        <p>hahahahaaaaaaa</p>
+        <span>yyyyyyyy</span>
+    </div>
 
 </body>
 <script>
