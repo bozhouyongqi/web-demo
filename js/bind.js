@@ -9,17 +9,18 @@
 
 
 /**
- * 实现Es5中实现的bind函数
+ * 实现Es5中实现的bind函数。这种实现也是函数柯里化。
  *
  * @param {Function} fn 原始函数
  * @param {Object} context 作用域
  * @returns {Function} 函数
  */
 function bind(fn, context) {
-    // 取出绑定的参数,注意arguments是个类数组的对象，本身是没有数组的一些方法的
+    // 取出绑定的参数,注意arguments是个类数组的对象，本身是没有数组的一些方法
     const outerArgs = Array.prototype.slice.call(arguments, 2);
     return function () {
-        return fn.apply(context, [].concat(outerArgs, arguments));
+        const innerArgs = Array.prototype.slice.call(arguments);
+        return fn.apply(context, [].concat(outerArgs, innerArgs));
     };
 }
 
@@ -28,13 +29,14 @@ const obj = {
 };
 
 // 注意这个地方若是换成箭头函数，则不能完成绑定。因为箭头函数的this是在定义时就完成了绑定
-const fn = function (para1) {
+const fn = function (para1, para2) {
     console.log('para1: ', para1);
+    console.log('para2: ', para2);
     console.log(this.name);
 };
 
 fn(); // 打印undefined
 
 const newFun = bind(fn, obj, 'kelihua');
-newFun();
+newFun('para2');
 
