@@ -16,8 +16,10 @@
  * @returns {Function} 函数
  */
 function bind(fn, context) {
+    // 取出绑定的参数
+    const outerArgs = Array.prototype.slice.call(arguments, 2);
     return function () {
-        return fn.apply(context, arguments);
+        return fn.apply(context, [].concat(outerArgs, arguments));
     };
 }
 
@@ -26,12 +28,13 @@ const obj = {
 };
 
 // 注意这个地方若是换成箭头函数，则不能完成绑定。因为箭头函数的this是在定义时就完成了绑定
-const fn = function () {
+const fn = function (para1) {
+    console.log('para1: ', para1);
     console.log(this.name);
 };
 
 fn(); // 打印undefined
 
-const newFun = bind(fn, obj);
+const newFun = bind(fn, obj, 'kelihua');
 newFun();
 
