@@ -16,7 +16,7 @@
  * @returns {Function} 函数
  */
 function bind(fn, context) {
-    // 取出绑定的参数
+    // 取出绑定的参数,注意arguments是个类数组的对象，本身是没有数组的一些方法的
     const outerArgs = Array.prototype.slice.call(arguments, 2);
     return function () {
         return fn.apply(context, [].concat(outerArgs, arguments));
