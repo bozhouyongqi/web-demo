@@ -60,3 +60,23 @@ function* Gen (x) {
 g = Gen(1);
 console.log(g.next()); // { value: 3, done: false }
 console.log(g.next()); // { value: undefined, done: true }
+
+console.log("===========实现斐波那契===========")
+
+function* fibonacci() {
+    let [pre, later] = [0,1];
+    while(true) {
+        [pre, later] = [later, pre + later];
+        yield later;
+    }
+}
+function outputFibonacci() {
+    const iterator = fibonacci();
+    for (let n of iterator) {
+        if (n > 100) {
+            return;
+        }
+        console.log(n);
+    }
+}
+outputFibonacci();
