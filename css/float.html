@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0px;
+        }
+        .wrapper {
+            border: 1px solid black
+        }
+
+        .wrapper::after {
+            clear: both;
+            content: '';
+            display: block;
+        }
+
+        .content {
+            float: left;
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+
+        .clear{
+            clear: both;
+        }
+
+    </style>
+</head>
+<body>
+    
+<div class="wrapper">
+    <div class="content">1</div>
+    <div class="content">2</div>
+    <div class="content">3</div>
+    333
+    <!-- <p class="clear"></p> -->
+</div>
+
+<div>2222</div>
+
+</body>
+</html>
