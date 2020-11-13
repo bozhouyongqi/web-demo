@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="clock">
+
+    </div>
+    <ul id="list">
+    </ul>
+
+    <script>
+        const clockElem = document.querySelector('.clock');
+        setInterval(() => {
+            const time = new Date();
+            clockElem.textContent = time.toLocaleString();
+        }, 1000);
+    </script>
+    <script>
+        (function renderMillionsData() {
+            const ulElem = document.querySelector('#list');
+            let insertDataNums = 20, currentInsertNum = 0;
+            const dataTotalNums = 10000;
+            const dataPageNums = Math.ceil(dataTotalNums / insertDataNums);
+
+
+            function animation() {
+                if (currentInsertNum >= dataPageNums) {
+                    return;
+                }
+                const fragment = document.createDocumentFragment();
+                for (let i = 0; i < insertDataNums; i++) {
+                    const li = document.createElement('li');
+                    li.textContent = Math.random();
+                    fragment.appendChild(li);
+                }
+                ulElem.appendChild(fragment);
+                currentInsertNum++;
+                requestAnimationFrame(animation);
+            }
+            requestAnimationFrame(animation);
+        })();
+    </script>
+    <!-- <script>
+        const ulElem = document.querySelector('#list');
+        const fragment = document.createDocumentFragment();
+        for(let i = 0 ; i < 100000; i++) {
+            const li = document.createElement('li');
+            li.innerHTML = `<span>${Math.random()}</span>`;
+            fragment.appendChild(li);
+        }
+        ulElem.appendChild(fragment);
+    </script> -->
+</body>
+</html>
