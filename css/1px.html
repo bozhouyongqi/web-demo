@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #textarea {
+            box-sizing: border-box;
+            background: #FCFCFC;
+            width: 100%;
+            resize: none;
+            line-height: 17px;
+            font-size: 14px;
+            height: 102px;
+            border: 10px solid #FCFCFC;
+            border-right-width: 5px;
+            padding-right: 5px;
+        }
+        #textarea:focus {
+            outline: none;
+        }
+
+        .textareaContainer {
+            position: relative;
+            width: 100%;
+            font-size: 0px;
+            line-height: 0px;
+        }
+
+        .textareaContainer:before {
+            content: '';
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            width: 100%;
+            height: 100%;
+            box-sizing: border-box;
+            border: 1px solid #979797;
+            pointer-events: none;
+            border-radius: 6px;
+        }
+
+        @media (min-resolution: 2dppx) {
+            .textareaContainer:before{
+                width: 200%;
+                height: 200%;
+                transform: scale(0.5, 0.5);
+                transform-origin: 0 0;
+                border-radius: 12px;
+            }
+        }
+
+        @media (min-resolution: 3dppx) {
+            .textareaContainer:before{
+                width: 300%;
+                height: 300%;
+                transform: scale(0.33333, 0.33333);
+                transform-origin: 0 0;
+                border-radius: 18px;
+            }
+        }
+
+        #textarea::-webkit-input-placeholder {
+            font-size: 14px;
+            color: #CCCCCC;
+            line-height: 17px;
+        }
+
+        #textarea::-moz-placeholder {
+            font-size: 14px;
+            color: #CCCCCC;
+            line-height: 17px;
+        }
+
+        button {
+            width: 100%;
+            margin: 20px auto;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="textareaContainer">
+
+        <textarea name="textarea" id="textarea"></textarea>
+    </div>
+
+    <button>提交</button>
+    
+</body>
+</html>
