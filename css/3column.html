@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .wrapper1 {
+            display: block;
+            font-size: 0px;
+        }
+        .wrapper1 .box{
+            display: inline-block;
+            box-sizing: border-box;
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+        }
+        .wrapper1 .box:nth-child(2){
+            width: calc(100% - 200px);
+        }
+
+        .wrapper2 {
+            display: flex;
+        }
+        .wrapper2 .box{
+            box-sizing: border-box;
+            flex: 0 0 100px;
+            height: 100px;
+            border: 1px solid black;
+        }
+        .wrapper2 .box:nth-child(2){
+            flex: 1 1 auto;
+            border: 1px solid black;
+        }
+
+        .box{
+            box-sizing: border-box;
+            height: 100px;
+            border: 1px solid black;
+        }
+        .float-wrapper .box.left {
+            float: left;
+            width: 100px;
+        }
+
+        .float-wrapper .box.right {
+            float: right;
+            width: 100px;
+        }
+
+        .float-wrapper::after{
+            content: '';
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+
+    calc计算
+    <div class="wrapper1">
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+    </div>
+
+    flex布局
+    <div class="wrapper2">
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+    </div>
+
+    浮动布局
+
+    <div class="float-wrapper">
+        <div class="box left"></div>
+        <div class="box right"></div>
+        <div class="box">hahahah</div>
+    </div>
+
+    绝对定位
+    <div class="absolute-wrapper">
+        <style>
+            .absolute-wrapper {
+                position: relative;
+                margin-bottom: 105px;
+            }
+            .absolute-wrapper .box.left {
+                position: absolute;
+                width: 100px;
+            }
+
+            .absolute-wrapper .box.right {
+                position: absolute;
+                right: 0px;
+                width: 100px;
+            }
+
+            .absolute-wrapper .box.center {
+                position: absolute;
+                left: 100px;
+                right: 100px;
+            }
+            
+        </style>
+        <div class="box left"></div>
+        <div class="box center">hahahah</div>
+        <div class="box right"></div>
+    </div>
+    
+    表格标签布局
+
+    <table >
+        <style>
+            table{
+                width: 100%;
+                border-spacing: 0px;
+            }
+            td {
+                border: 1px solid black;
+                height: 100px;
+            }
+            td.left {
+                width: 100px;
+            }
+            td.right {
+                width: 100px;
+            }
+        </style>
+        <tr>
+            <td class="left"></td>
+            <td class="center">hahah</td>
+            <td class="right"></td>
+        </tr>
+    </table>
+
+    div表格布局
+
+    <div class="table-wrapper">
+        <style>
+            .table-wrapper {
+                display: table;
+                width: 100%;
+            }
+
+            .table-wrapper .box {
+                display: table-cell;
+            }
+            .table-wrapper .box.left {
+                width: 100px;
+            }
+            .table-wrapper .box.right {
+                width: 100px;
+            }
+
+
+        </style>
+        <div class="box left"></div>
+        <div class="box">hahahah</div>
+        <div class="box right"></div>
+    </div>
+
+    
+
+    <p>grid布局(兼容性不好)</p>
+    <p>总结: 效果比较好的，我认为浮动布局和flex布局最好，flex布局基本上浏览器都已经兼容了，float布局兼容性更好</p>
+
+
+    
+</body>
+</html>
