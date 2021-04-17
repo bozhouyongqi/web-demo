@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>文本换行处理</title>
+  <style>
+    .container {
+      width: 100px;
+      border: 1px solid red;
+    }
+    .wrap-together {
+      display: inline-block;
+    }
+
+  </style>
+</head>
+<body>
+  <p>
+    文本换行的一般处理方式，设置whitespace属性，例如nowrap是禁止换行，normal会自动换行，若是要限制完整单词不被
+    这行，则再配合word-break属性即可。
+    若需要在固定的位置换行，而不是任意处可以换行，则需要将固定换行部分的文本设置为inline-block整体。例如文本
+    "今天天气真美好"，在换行时需要将真美好三个字作为一个整体折到第二行。
+  </p>
+
+  单独换行
+  <p class="container">
+    <span>今天天气真美好，哈哈</span>
+  </p>
+
+  作为整体换行
+  <p class="container">
+    <span>今天天气<span class="wrap-together">真美好</span>，哈哈</span>
+  </p>
+
+
+</body>
+</html>
